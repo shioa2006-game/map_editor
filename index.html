@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>p5.js MAPエディター</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+  <script defer src="sketch.js"></script>
+</head>
+<body>
+  <header class="page-header">
+    <h1>p5.js MAPエディター</h1>
+    <p>タイルを選んでキャンバスをクリックまたはドラッグすると、MAP配列が更新されます。</p>
+  </header>
+  <main class="layout">
+    <section class="canvas-panel">
+      <div class="panel-title">マッププレビュー</div>
+      <div id="canvas-wrapper" class="canvas-wrapper"></div>
+      <div class="canvas-actions">
+        <span id="map-size-label">0 x 0</span>
+        <button id="reset-map" type="button">初期マップに戻す</button>
+      </div>
+    </section>
+    <section class="controls-panel">
+      <div class="panel-title">タイルパレット</div>
+      <div id="tile-palette" class="tile-palette"></div>
+      <div class="selected-tile" id="selected-tile">選択中: -</div>
+
+      <div class="panel-title">MAP二次元配列の読込</div>
+      <textarea id="map-input" class="map-text" rows="12"></textarea>
+      <button id="load-map" type="button">この配列でマップを更新</button>
+
+      <div class="panel-title">MAP二次元配列の出力</div>
+      <textarea id="map-output" class="map-text" rows="12" readonly></textarea>
+      <button id="copy-output" type="button">配列をコピー</button>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,144 @@
+﻿:root {
+  --tile-size: 48px;
+  font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  color: #1f1f1f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+  background: #f4f6fb;
+}
+
+.page-header {
+  margin-bottom: 16px;
+}
+
+.page-header h1 {
+  margin: 0 0 4px;
+  font-size: 1.6rem;
+}
+
+.layout {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.canvas-panel,
+.controls-panel {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.canvas-panel {
+  flex: 2 1 460px;
+}
+
+.controls-panel {
+  flex: 1 1 320px;
+}
+
+.panel-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.canvas-wrapper {
+  border: 2px solid #d0d6e6;
+  border-radius: 8px;
+  background: #eef3ff;
+  width: max-content;
+  overflow: auto;
+}
+
+.canvas-actions {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  border: none;
+  background: #246bfb;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+button:hover {
+  background: #1a53c6;
+}
+
+button:disabled {
+  background: #868ea3;
+  cursor: not-allowed;
+}
+
+.map-text {
+  width: 100%;
+  font-family: "Cascadia Code", "Consolas", monospace;
+  font-size: 0.85rem;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccd2e2;
+  background: #fdfdff;
+  margin-bottom: 8px;
+}
+
+.tile-palette {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tile-button {
+  position: relative;
+  width: var(--tile-size);
+  height: var(--tile-size);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-image: url('assets/tiles.png');
+  background-size: 384px 96px;
+  background-repeat: no-repeat;
+  background-color: #fff;
+}
+
+.tile-button::after {
+  content: attr(data-symbol);
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 0.65rem;
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+
+.tile-button.selected {
+  border-color: #ff8c3a;
+  box-shadow: 0 0 6px rgba(255, 140, 58, 0.7);
+}
+
+.selected-tile {
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+@media (max-width: 960px) {
+  body {
+    padding: 16px;
+  }
+}
